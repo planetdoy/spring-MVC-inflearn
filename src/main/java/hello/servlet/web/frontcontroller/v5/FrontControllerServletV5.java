@@ -60,15 +60,15 @@ public class FrontControllerServletV5 extends HttpServlet {
             return;
         }
 
-        //핸들러 어댑터
+        // 핸들러 어댑터
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
         // 모델앤뷰 반환
         ModelView mv = adapter.handle(request, response, handler);
-        //물리적 이름 반환
+        // 물리적 이름 반환
         String viewName = mv.getViewName();
-        //뷰 반환
+        // 뷰 반환
         MyView myView = viewResolver(viewName);
-        //render
+        // render
         myView.render(mv.getModel(), request, response);
 
     }
